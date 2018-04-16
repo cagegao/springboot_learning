@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class Application {
 	
+	
 	@Bean
 	@ConfigurationProperties(prefix="datasource")
 	public DataSource dataSource() {
