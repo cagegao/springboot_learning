@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8" />
+<title th:text="#{com.xxx.title}">Thymeleaf Test</title>
+</head>
+<body>
+	<h1 th:text="${host}">Link</h1>
+	<p th:text="${session}">session</p>
+	<hr />
+	<h3>变量表达式</h3>
+	<span th:text="${user.name}">session</span>
+	<hr />
+	<span th:text="${books}">session</span>
+	<ul>
+		<li th:each="book,iterStat : ${books}"><span
+			th:text="|${iterStat.count}.${book}|">bookname</span></li>
+	</ul>
+	<hr />
+	<h3>选择(星号)表达式</h3>
+	<div th:object="${user}">
+		<p th:text="*{name}">Name</p>
+		<p th:text="*{birthday}">Birthday</p>
+	</div>
+	<hr />
+	<h3>URL表达式</h3>
+	<a th:href="@{http://www.jd.com}">Link</a>
+	<a href="ok.html" th:href="@{/ok}">Link2</a>
+	<a href="order/detail/1" th:href="@{/order/detail/} + ${orderId}">Link3</a>
+	<a href="order/detail/1" th:href="|/order/detail/${orderId}|">Link4</a>
+	<hr />
+	<p th:text="'this is a p'">段落</p>
+	<span th:text="'1 + 1 = ' + (1 + 1)">算术表达式</span>
+	<p th:text="true and false"></p>
+	<hr />
+	<!-- ${}用于获取context中的键值对数据 -->
+	<!-- #{}国际化 -->
+	<!-- ${#}用于获取context中的内置变量 -->
+	<p th:text="${#dates.createNow()}">time</p>
+	<!-- 求字符串的长度 -->
+	<p th:text="${#strings.length(user.name)}"></p>
+	<!-- 生成长度为10的随机字符串 -->
+	<p th:text="${#strings.randomAlphanumeric(10)}"></p>
+	<hr />
+	<footer th:fragment="copy"> &copy; 2018 </footer>
+
+</body>
+</html>
