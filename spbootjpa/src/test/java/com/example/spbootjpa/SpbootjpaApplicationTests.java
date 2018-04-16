@@ -15,7 +15,6 @@ import com.example.spbootjpa.domain.p.UserRepository;
 @SpringBootTest
 public class SpbootjpaApplicationTests {
 
-	
 	@Autowired
 	private UserRepository userRepository;
 
